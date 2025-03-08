@@ -1,197 +1,191 @@
 /**
- * Prism base code highlighter theme using Sass 
- *
- * @author @MoOx
- */
-
-// prism selector
-$code-selector: "code[class*=\"language-\"], pre[class*=\"language-\"]";
-$code-selector-block: "pre[class*=\"language-\"]";
-$code-selector-inline: ":not(pre) > code[class*=\"language-\"]";
-
-// generic stuff
-$code-font-family: 		Menlo, Monaco, "Courier New", monospace	!default;
-$code-font-size: 		12px	!default;
-$code-line-height:		18px	!default;
-
-$code-tab-size: 		4		!default;
-$code-hyphens: 			none	!default;
-
-$code-block-padding: 	12px	!default;
-$code-inline-padding: 	2px 6px	!default;
-$code-border-radius: 	5px		!default;
-
-$code-background:          #2a2a2a;
-$code-color:               #76d9e6;
-$code-color-fade:          #bebec5;
-$code-text-shadow:         0 1px 0 #000;
-$code-box-shadow: 		1px 1px .3em -.1em #000 inset !default;
-
-// $code-linenums-padding:		7px !default;
-// $code-linenums-width: 			40px !default;
-// $code-linenums-background:		#444 !default;
-// $code-linenums-border-color:	#555 !default;
-// $code-linenums-border-width:	1px !default;
-
-@if $code-selector != null {
-	#{$code-selector} {
-		-moz-tab-size: $code-tab-size;
-		-o-tab-size: $code-tab-size;
-		tab-size: $code-tab-size;
-
-		-webkit-hyphens: $code-hyphens;
-		-moz-hyphens: $code-hyphens;
-		-ms-hyphens: $code-hyphens;
-		hyphens: $code-hyphens;
-
-		// whitespace management
-		white-space: pre; // fallback
-		white-space: pre-wrap;
-		word-break: break-all;
-		word-wrap: break-word;
-		
-		font-family: $code-font-family;
-		font-size: 	$code-font-size;
-		line-height: $code-line-height;
-
-		color: $code-color;
-		text-shadow: $code-text-shadow;
-		background: $code-background;
-	}
+*https://github.com/MoOx/sass-prism-theme-base by Maxime Thirouin ~ MoOx --> http://moox.fr/
+*/
+code[class*="language-"],
+pre[class*="language-"] {
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: normal;
+    font-family: Menlo, Monaco, "Courier New", monospace;
+    font-size: 14px;
+    color: #76d9e6;
+    text-shadow: none;
+}
+pre[class*="language-"],
+:not(pre) > code[class*="language-"] {
+    background: #2a2a2a;
+}
+pre[class*="language-"] {
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #e1e1e8;
+    overflow: auto;
 }
 
-%code-background {
-	border-radius: $code-border-radius;
-	border: $code-border;
-	box-shadow: $code-box-shadow;
+pre[class*="language-"] {
+    position: relative;
+}
+pre[class*="language-"] code {
+    white-space: pre;
+    display: block;
 }
 
-@if $code-selector-block != null {
-	#{$code-selector-block} {
-		@extend %code-background;
-		padding: $code-block-padding;
-	}
+:not(pre) > code[class*="language-"] {
+    padding: 0.15em 0.2em 0.05em;
+    border-radius: .3em;
+    border: 0.13em solid #7a6652;
+    box-shadow: 1px 1px 0.3em -0.1em #000 inset;
+}
+.token.namespace {
+    opacity: .7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6f705e;
+}
+.token.operator,
+.token.boolean,
+.token.number {
+    color: #a77afe;
+}
+.token.attr-name,
+.token.string {
+    color: #e6d06c;
+}
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #e6d06c;
+}
+.token.selector,
+.token.inserted {
+    color: #a6e22d;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.important,
+.token.deleted {
+    color: #ef3b7d;
+}
+.token.regex,
+.token.statement {
+    color: #76d9e6;
+}
+.token.placeholder,
+.token.variable {
+    color: #fff;
+}
+.token.important,
+.token.statement,
+.token.bold {
+    font-weight: bold;
+}
+.token.punctuation {
+    color: #bebec5;
+}
+.token.entity {
+    cursor: help;
+}
+.token.italic {
+    font-style: italic;
 }
 
-@if $code-selector-inline != null {
-	#{$code-selector-inline} {
-		@extend %code-background;
-		padding: $code-inline-padding;
-	}
+code.language-markup {
+    color: #f9f9f9;
+}
+code.language-markup .token.tag {
+    color: #ef3b7d;
+}
+code.language-markup .token.attr-name {
+    color: #a6e22d;
+}
+code.language-markup .token.attr-value {
+    color: #e6d06c;
+}
+code.language-markup .token.style,
+code.language-markup .token.script {
+    color: #76d9e6;
+}
+code.language-markup .token.script .token.keyword {
+    color: #76d9e6;
 }
 
-// pre[class*="language-"],
-// :not(pre) > code[class*="language-"] {
-// 	background: $code-background;
-// }
-
-// prism tokens
-// 
-$code-color-comment:        #6f705e;
-$code-color-keyword:        #f12770;
-$code-color-value:          #76d9e6;
-$code-color-string:         #e6d06c;
-$code-color-name:           #e6d06c;
-$code-color-number:         #a77afe;
-$code-color-variable:       #fff;
-$code-color-selector:       #a6e22d;
-
-@import "prism";
-
-#{$code-selector} {
-	.namespace {
-		opacity: .7;
-	}
-
-	.token {
-		&.comment,
-		&.prolog,
-		&.doctype,
-		&.cdata {
-			color: $code-color-comment;
-		}
-
-		&.null,
-		&.operator,
-		&.boolean,
-		&.number {
-			color: $code-color-number;
-		}
-
-		&.attr-name,
-		&.string {
-			color: $code-color-string;
-		}
-
-		&.entity,
-		&.url,
-		.language-css &.string,
-		.style &.string {
-			color: $code-color-string;
-		}
-
-		&.selector {
-			color: $code-color-selector;
-		}
-
-		&.atrule,
-		&.attr-value,
-		&.keyword,
-		&.control,
-		&.directive,
-		&.important,
-		&.unit {
-			color: $code-color-keyword;
-		}
-
-		&.regex,
-		&.statement {
-			color: $code-color-value;
-		}
-
-		&.placeholder,
-		&.variable {
-			color: $code-color-variable;
-		}
-
-		&.property,
-		&.tag {
-			font-style: italic;
-		}
-
-		&.important,
-		&.statement {
-			font-weight: bold;
-		}
-
-		// todo ?
-		// &.mixin
-		// &.gradient
-		// &.abslength
-		// &.easing
-		// &.time
-		// &.angle
-		// &.fontfamily
-
-		// ruby/vim https://github.com/LeaVerou/prism/pull/18
-		// &.inst-var
-		// &.builtin
-		// &.const
-		// &.symbol
-		//
-		// php https://github.com/LeaVerou/prism/pull/20
-		// &.deliminator
-		// &.function
-
-		&.punctuation {
-			color: $code-color-punctuation;
-		}
-
-		&.entity {
-			cursor: help;
-		}
-
-		// for dev :)
-		&.debug { color: red }
-	}
+/* Line highlight plugin */
+pre[class*="language-"][data-line] {
+    position: relative;
+    padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin-top: 1em;
+    background: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+    line-height: inherit;
+    white-space: pre;
+}
+pre[data-line] .line-highlight:before,
+pre[data-line] .line-highlight[data-end]:after {
+    content: attr(data-start);
+    position: absolute;
+    top: .4em;
+    left: .6em;
+    min-width: 1em;
+    padding: 0.2em 0.5em;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: black;
+    font: bold 65%/1 sans-serif;
+    height: 1em;
+    line-height: 1em;
+    text-align: center;
+    border-radius: 999px;
+    text-shadow: none;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+pre[data-line] .line-highlight[data-end]:after {
+    content: attr(data-end);
+    top: auto;
+    bottom: .4em;
+}
+/* Line highlighting */
+.highlight-line {
+    padding: 0.125rem .75rem;
+}
+.highlight-line:empty {
+    min-height: 1.5rem;
+}
+/* .highlight-line:not(:empty):not(:last-child) {
+    border-bottom: 1px dashed #373737;
+} */
+.highlight-line.highlight-line.highlight-line-active,
+.highlight-line.highlight-line.highlight-line-add,
+.highlight-line.highlight-line.highlight-line-remove {
+    border-color: transparent;
+}
+.highlight-line-isdir {
+    color: #b0b0b0;
+    background-color: #222;
+}
+.highlight-line-active {
+    background-color: #444;
+    background-color: hsla(0, 0%, 27%, .8);
+}
+.highlight-line-add {
+    background-color: hsla(126, 31%, 39%, 0.5);
+}
+.highlight-line-remove {
+    background-color: hsla(0, 51%, 37%, 0.5);
 }
