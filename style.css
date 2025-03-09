@@ -1,0 +1,47 @@
+body {
+  background:#de7300;
+}
+
+h1 {
+  color:#02424f;
+}
+
+h2 {
+  color:#290f02;
+}
+h6{
+  margin-top: 5px;
+  text-align: center;
+}
+
+p {
+  color:#290f02;
+  margin-right: 30px;
+}
+
+ul {
+  color:#c51c6f;
+}
+
+a:link {
+  color: #d5dcde;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #033a45;
+  background-color: transparent;
+  text-decoration: underline;
+}
+hr {
+  color: #02424f;
+}
+.williampride.png {
+  margin-left: 30px;
+}
+footer {
+  text-align: center;
+  margin-top:70px;
+  padding-top:5px
+}
